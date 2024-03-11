@@ -1,0 +1,181 @@
+.body{
+
+  background-color: white;
+
+  color: black;
+
+}
+
+
+
+.formulario{
+
+  border: 1px solid rgb(2, 87, 30);
+
+  margin: 5px;
+
+ 
+
+}
+
+
+
+.formularioSerie{
+
+  background-color: #ccf8ee;
+
+  border: 1px solid rgb(2, 87, 30);
+
+  margin: 5px;
+
+}
+
+
+
+.inputBuscar{
+
+  border-radius: 10px;
+
+  border: 2px solid #1AAB8A
+
+}
+
+
+
+.botones{
+
+margin: 10px;
+
+background:#1AAB8A;
+
+color:#fff;
+
+height: 40px;
+
+padding: 0.2em;
+
+cursor: pointer;
+
+border-radius: 5px;
+
+}
+
+
+
+.botones:hover{
+
+  background:#fff;
+
+  color:#1AAB8A;
+
+}
+
+
+
+.actualizarSerie{
+
+  background-color: gray;
+
+}
+
+
+
+
+
+.table{
+
+  /*font-size: 25px;*/
+
+  text-align: center;
+
+  margin-left: auto;
+
+  margin-right: auto;
+
+
+
+}
+
+
+
+.th{
+
+  color: rgb(0, 92, 31);
+
+  border: 4px solid #1AAB8A;
+
+}
+
+
+
+.td{
+
+
+
+  background: #ccf8ee;
+
+  border-bottom: 1px solid #fff;
+
+ 
+
+}
+
+
+
+.tr:hover td{
+
+  background: #fac1a0;
+
+
+
+}
+
+
+
+
+
+.h3{
+
+  text-align: center;
+
+  margin-bottom: 5px;
+
+}
+
+
+
+.modal{
+
+  position: absolute;
+
+  overflow: hidden;
+
+  max-width: 370px;
+
+  width: 90vw;
+
+  height: 50vh;
+
+  top: 0;
+
+  bottom: 0;
+
+  left: 0;
+
+  right: 0;
+
+  margin: auto;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .4);
+
+  background-color: white;
+
+}
+
+
+
+.divModal{
+
+ text-align: center;
+
+}
