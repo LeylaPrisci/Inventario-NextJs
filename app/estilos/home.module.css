@@ -179,3 +179,13 @@ border-radius: 5px;
  text-align: center;
 
 }
+
+
+
+/*cards*/
+.imagenes{
+  width:48px;
+    height:48px;
+    border-radius:160px;
+    border:10px solid #666;
+}

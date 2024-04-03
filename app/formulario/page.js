@@ -4,64 +4,33 @@ import { Button } from 'reactstrap';
 import Link from 'next/link';
 import style from '../estilos/home.module.css'
 
+//Tabla correctamente envianda
 const Formulario = () => {
-
   const [data, setData] = useState([]);
   const [form, setForm] = useState({
     id: '',
-    marca: '',
+    producto: '',
     modelo: '',
   });
- 
 
   const handleChange = (e) => {
-setForm({ ...form, [e.target.name]: e.target.value });
-}; 
-
-  /*const handleKeyPress = (e) => {
-
-    if (e.key === 'Enter' && form.serie) {
-
-      const existingItem = data.find((item) => item.serie === form.serie);
-
- 
-
-      if (existingItem) {
-
-        setForm({ ...form, stock: existingItem.stock + 1 });
-
-      } else {
-
-        setForm({ ...form, stock: form.stock + 1 });
-
-        setData([...data, form]);
-
-      }
-
-      e.preventDefault();
-
-    }
-
-   
-
-  };*/
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const insertar = async () => {
     try {
       fetch('/api/inventario', {
         method: 'POST',
         body: JSON.stringify({
-          marca: form.marca,
+          producto: form.producto,
           modelo: form.modelo,
-
         }),
       })
         .then((res) => res.json())
         .then((data) => {
           setData(data.resultado);
-          alert('Dato creado');
+          alert('Producto creado');
         });
-
     } catch (error) {
       console.error(
         'Error al insertar datos:',
@@ -70,86 +39,33 @@ setForm({ ...form, [e.target.name]: e.target.value });
     }
   };
 
- 
-
   const cancelarFormulario = ()=>{
     setForm({
-      marca: '',
+      producto: '',
       modelo: '',
-
     })
   }
 
- //serie
- /*
- <div>
-
-          <label htmlFor='serie'>Serie: </label>
-
-          <textarea  placeholder='Ingrese el código'
-
-            name='serie'
-
-            rows={2}cols={18}
-
-            id='serie'
-
-            className={`${style.formulario}`}
-
-            value={form.serie}
-
-            onChange={handleChange}
-
-            onKeyUpCapture={handleKeyPress}
-
-            ></textarea>
-
-        </div>
-  */
-//stock
-/*
-<div>
-
-          <label htmlFor='stock'>Stock: </label>
-
-          <input
-
-            name='stock'
-
-            type='text'
-
-            id='stock'
-
-            className={`${style.formulario}`}
-
-            onChange={handleChange}
-
-            value={form.stock}
-
-          />
-
-        </div>
- */
-  return (
-
+  return(
     <>
-
-      <h2>Formulario</h2>
+      <h2 className={`${style.h2Formulario}`}>Formulario</h2>
+      
       <button className={`${style.botones}`}>
         <Link href="/">Volver</Link>
       </button>
 
+      <div className={`${style.divformulario}`}>
       <form>
         <div>
-          <label htmlFor='marca'>Marca: </label>
+          <label htmlFor='producto'>Producto: </label>
           <input
-            placeholder='Marca'
-            name='marca'
+            placeholder='Producto'
+            name='producto'
             type='text'
-            id='marca'
+            id='producto'
             className={`${style.formulario}`}
             onChange={handleChange}
-            value={form.marca}
+            value={form.producto}
           />
         </div>
         <div>
@@ -171,12 +87,8 @@ setForm({ ...form, [e.target.name]: e.target.value });
         <button className={`${style.botones}`} onChange={cancelarFormulario}>Cancelar
         </button>
       </form>
+      </div>
     </>
-  );
+  )
 };
-
- 
-
 export default Formulario;
-
- 
