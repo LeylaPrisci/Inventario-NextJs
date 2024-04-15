@@ -1,0 +1,21 @@
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fbfbfbba; /* Color de fondo elegante */
+    padding: 23px 20px; /* Ajusta el relleno según sea necesario */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+.titlediv {
+    flex-grow: 1; /* Permitir que el título ocupe el espacio restante */
+    text-align: center; /* Centrar el contenido */
+}
+
+.title {
+    margin: 0 auto; /* Centrar el título horizontalmente */
+    color: black; /* Color del texto */
+    font-size: 23px; /* Tamaño del texto */
+    font-weight: bold;
+}

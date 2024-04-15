@@ -1,3 +1,4 @@
+import NavBar from './components/Navbar'
 import {montserrat} from './estilos/fonts'
  import './globals.css'
  
@@ -9,8 +10,8 @@ export default function RootLayout({children}){
   return (
    <html lang="en">
       <body className={`${montserrat.className}`}>
-        <h1>Control de Stock</h1> 
-        <div> 
+        <div>
+          <NavBar/>
           {children}
         </div>
       </body> 

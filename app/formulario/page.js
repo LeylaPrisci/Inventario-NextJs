@@ -1,25 +1,26 @@
 'use client'
 import React, { useState} from 'react';
-import { Button } from 'reactstrap';
 import Link from 'next/link';
 import style from '../estilos/home.module.css'
+import { Title, Button, MantineProvider,  TextInput, Group, Box } from '@mantine/core';
+import swal from 'sweetalert2'
 
 //Tabla correctamente envianda
 const Formulario = () => {
   const [data, setData] = useState([]);
   const [form, setForm] = useState({
-    id: '',
     producto: '',
     modelo: '',
   });
 
+ 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const insertar = async () => {
     try {
-      fetch('/api/inventario', {
+      fetch('/api/producto', {
         method: 'POST',
         body: JSON.stringify({
           producto: form.producto,
@@ -29,7 +30,10 @@ const Formulario = () => {
         .then((res) => res.json())
         .then((data) => {
           setData(data.resultado);
-          alert('Producto creado');
+          swal.fire({
+            icon: 'success',
+            title: 'Producto insertado con éxito',
+          });
         });
     } catch (error) {
       console.error(
@@ -46,15 +50,15 @@ const Formulario = () => {
     })
   }
 
-  return(
-    <>
-      <h2 className={`${style.h2Formulario}`}>Formulario</h2>
-      
-      <button className={`${style.botones}`}>
-        <Link href="/">Volver</Link>
-      </button>
 
-      <div className={`${style.divformulario}`}>
+  return(
+    <> 
+     <MantineProvider> 
+      <Title className={`${style.title}`} order={2}>Crear Producto</Title>
+        <button className={`${style.botones}`}>
+          <Link href="/">Volver</Link>
+        </button>
+        <div className={`${style.divformulario}`}>
       <form>
         <div>
           <label htmlFor='producto'>Producto: </label>
@@ -63,7 +67,7 @@ const Formulario = () => {
             name='producto'
             type='text'
             id='producto'
-            className={`${style.formulario}`}
+            className={`${style.input}`}
             onChange={handleChange}
             value={form.producto}
           />
@@ -75,12 +79,11 @@ const Formulario = () => {
             name='modelo'
             type='text'
             id='modelo'
-            className={`${style.formulario}`}
+            className={`${style.input}`}
             onChange={handleChange}
             value={form.modelo}
           />
         </div>
-
         <Button className={`${style.botones}`} onClick={insertar}>
           Insertar
         </Button>
@@ -88,7 +91,25 @@ const Formulario = () => {
         </button>
       </form>
       </div>
+     </MantineProvider>
+      
     </>
   )
 };
 export default Formulario;
+
+
+/*
+
+  return(
+    <>
+      <h2 className={`${style.h2Formulario}`}>Formulario</h2>
+      
+      <button className={`${style.botones}`}>
+        <Link href="/">Volver</Link>
+      </button>
+
+     
+    </>
+  )
+ */
